@@ -1,0 +1,12 @@
+{
+    "file.vanillaTxt" : "text_eng",
+    "text.modName" : "Slug Archive",
+    "text.modDescription" : "This mod is not completed.",
+    "text.autoPause" : "Auto Pause",
+    "text.needNeuron" : "Neuron as Key",
+    "text.keyBind" : "Toggle Key",
+    "descript.autoPause" : "Pause the game while the archive is open.",
+    "descript.needNeuron" :
+    "You need to keep 5P Neuron or Green Neuron in your hand, stomach or consume one to update and consult the archive.\n\"Hey! Let go the LTTM Neuron THAT DUMB ASS!\"",
+    "descript.keyBind" : "The key that, when pressed, opens the archive."
+}

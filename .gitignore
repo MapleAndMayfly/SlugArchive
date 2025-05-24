@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Especially for this project
+apply.bat
+DO NOT READ ME AND STRUGGLE.txt
+slugarchive/
+
 # User-specific files
 *.rsuser
 *.suo

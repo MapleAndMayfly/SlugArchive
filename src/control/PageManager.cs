@@ -7,6 +7,7 @@ namespace SlugArchive.src.control
 {
     public class PageManager : MonoBehaviour
     {
+        private readonly PageBase PB;
         private readonly KeyboardShortcut escapeKey = new(KeyCode.Escape);
         private KeyboardShortcut toggleKey;
         private bool isVisible;
@@ -17,10 +18,15 @@ namespace SlugArchive.src.control
             isVisible = false;
             paused = false;
             toggleKey = new(KeyCode.BackQuote);
+
+            // To create GameObject & add componet PageBase
+            GameObject pageObject = new("SlugArchivePage");
+            PB = pageObject.AddComponent<PageBase>();
         }
 
         public void Update(On.RainWorld.orig_Update orig, RainWorld self)
         {
+            // To block update when paused
             if (SlugArchiveMain.RWG == null)
             {
                 orig(self);
@@ -54,21 +60,21 @@ namespace SlugArchive.src.control
             paused = pause && ConfigInterface.autoPause.Value;
         }
 
-        private void ShowPage(int page)
+        public void ShowPage(int page)
         {
             if (page == -1)
             {
                 SetGamePaused(false);
                 isVisible = false;
+                PB.Hide();
                 Cursor.visible = false;
-                // TODO: dispose page
             }
             else
             {
                 SetGamePaused(true);
                 isVisible = true;
+                PB.Show();
                 Cursor.visible = true;
-                // TODO: show page
             }
         }
     }

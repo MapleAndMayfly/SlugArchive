@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+	<!-- Please remove this code block or change target folder before you generate a DLL file -->
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="copy /Y &quot;$(TargetPath)&quot; &quot;D:\MyCode\CSharp\SlugArchive\slugarchive\plugins&quot;"></Exec>
 	</Target>

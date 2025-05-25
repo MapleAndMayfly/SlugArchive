@@ -12,13 +12,13 @@ public class ConfigInterface : OptionInterface
     public static Configurable<bool> needNeuron;    // NSHSwarmer or SSOracleSwarmer
     public static Configurable<KeyCode> keyBind;
 
-    private static Vector2 TitlePos { get; } = new(200, 530);
-    private static Vector2 SubtitlePos { get; } = new(200, 510);
-    private static Vector2 TitleSize { get; } = new(200, 50);
-    private static Vector2 ColumSize { get; } = new(150, 50);
-    private static Vector2 ListPos { get; } = new(100, 450);
-    private static Vector2 CheckBoxSize { get; } = new(130, 30);
-    private const float gap = 70f;
+    private static readonly Vector2 titlePos = new(200, 530);
+    private static readonly Vector2 subtitlePos = new(200, 510);
+    private static readonly Vector2 titleSize = new(200, 50);
+    private static readonly Vector2 columSize = new(150, 50);
+    private static readonly Vector2 listPos = new(100, 450);
+    private static readonly Vector2 checkBoxSize = new(130, 30);
+    private static readonly float gap = 70f;
 
     public ConfigInterface()
     {
@@ -29,50 +29,50 @@ public class ConfigInterface : OptionInterface
 
     public override void Initialize()
     {
-        float currY = ListPos.y;
-        float listX = ListPos.x;
+        float currY = listPos.y;
+        float listX = listPos.x;
 
         Tabs = [ new OpTab(this) ];
 
         // Header
         Tabs[0].AddItems(
-            new OpLabel(TitlePos, TitleSize, KKMT.Translate("text.modName"), bigText: true),
-            new OpLabel(SubtitlePos, TitleSize, $"ver. {SlugArchiveMain.PLUGIN_VERSION}") { color = Color.gray }
+            new OpLabel(titlePos, titleSize, KKMT.Translate("text.modName"), bigText: true),
+            new OpLabel(subtitlePos, titleSize, $"ver. {SlugArchiveMain.PLUGIN_VERSION}") { color = Color.gray }
         );
 
         // AutoPause
         Tabs[0].AddItems(
-            new OpLabel(new Vector2(listX, currY), ColumSize, KKMT.Translate("text.autoPause"), bigText: true)
+            new OpLabel(new Vector2(listX, currY), columSize, KKMT.Translate("text.autoPause"), bigText: true)
             {
                 alignment = FLabelAlignment.Right,
                 verticalAlignment = OpLabel.LabelVAlignment.Center,
                 description = KKMT.Translate("descript.autoPause")
             },
-            new OpCheckBox(autoPause, new Vector2(listX + ColumSize.x + 20, currY + 10))
+            new OpCheckBox(autoPause, new Vector2(listX + columSize.x + 20, currY + 10))
         );
 
         // NeedNeuron
         currY -= gap;
         Tabs[0].AddItems(
-            new OpLabel(new Vector2(listX, currY), ColumSize, KKMT.Translate("text.needNeuron"), bigText: true)
+            new OpLabel(new Vector2(listX, currY), columSize, KKMT.Translate("text.needNeuron"), bigText: true)
             {
                 alignment = FLabelAlignment.Right,
                 verticalAlignment = OpLabel.LabelVAlignment.Center,
                 description = KKMT.Translate("descript.needNeuron")
             },
-            new OpCheckBox(needNeuron, new Vector2(listX + ColumSize.x + 20, currY + 10))
+            new OpCheckBox(needNeuron, new Vector2(listX + columSize.x + 20, currY + 10))
         );
 
         // KeyBind
         currY -= gap;
         Tabs[0].AddItems(
-            new OpLabel(new Vector2(listX, currY), ColumSize, KKMT.Translate("text.keyBind"), bigText: true)
+            new OpLabel(new Vector2(listX, currY), columSize, KKMT.Translate("text.keyBind"), bigText: true)
             {
                 alignment = FLabelAlignment.Right,
                 verticalAlignment = OpLabel.LabelVAlignment.Center,
                 description = KKMT.Translate("descript.keyBind")
             },
-            new OpKeyBinder(keyBind, new Vector2(listX + ColumSize.x + 20, currY + 10), CheckBoxSize, false)
+            new OpKeyBinder(keyBind, new Vector2(listX + columSize.x + 20, currY + 10), checkBoxSize, false)
         );
         
     }

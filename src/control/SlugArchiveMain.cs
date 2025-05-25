@@ -5,6 +5,7 @@ using BepInEx;
 using System.Text;
 
 using SlugArchive.src.view;
+using UnityEngine;
 
 #pragma warning disable CS0618
 [module: UnverifiableCode]
